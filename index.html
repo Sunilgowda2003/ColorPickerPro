@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ColorPicker Pro | Color Studio</title>
+
+    <meta name="description"
+        content="A modern color picker and palette generator. Explore colors, copy HEX, RGB and HSL codes, and create gradients.">
+
+    <meta name="theme-color" content="#6c63ff">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="logo">
+                <div class="logo-icon">C</div>
+
+                <div>
+                    <h1>ColorPicker <span>Pro</span></h1>
+                    <p>Your Creative Color Studio</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+
+                <button id="resetBtn" class="btn btn-outline" type="button">
+                    ↻ Reset
+                </button>
+
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch theme">
+
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark Mode</span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Introduction -->
+            <section class="welcome-section">
+
+                <div>
+                    <span class="eyebrow">DESIGN TOOLKIT</span>
+
+                    <h2>Explore the world of colors.</h2>
+
+                    <p>
+                        Pick colors, generate palettes and create
+                        beautiful gradients for your next project.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- Color Picker Workspace -->
+            <section class="workspace">
+
+                <!-- Interactive Color Wheel -->
+                <div class="color-wheel-section">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <h3>Interactive Color Wheel</h3>
+                            <p>Select a color directly from the wheel.</p>
+                        </div>
+
+                        <span class="wheel-badge">LIVE</span>
+
+                    </div>
+
+                    <div class="color-wheel-wrapper">
+
+                        <canvas
+                            id="colorWheel"
+                            width="300"
+                            height="300"
+                            aria-label="Interactive color wheel"
+                            role="button"
+                            tabindex="0">
+                        </canvas>
+
+                    </div>
+
+                    <div class="wheel-selected-color">
+
+                        <span id="wheelColorPreview"></span>
+
+                        <div>
+                            <small>Selected Wheel Color</small>
+                            <strong id="wheelColorHex">#6C63FF</strong>
+                        </div>
+
+                    </div>
+
+                    <p class="wheel-hint">
+                        Click or drag anywhere on the wheel to select a color.
+                    </p>
+
+                </div>
+
+                <!-- Brightness Control -->
+                <div class="wheel-brightness-control">
+
+                    <div class="brightness-header">
+
+                        <label for="wheelBrightness">
+                            Brightness
+                        </label>
+
+                        <span id="brightnessValue">100%</span>
+
+                    </div>
+
+                    <input
+                        type="range"
+                        id="wheelBrightness"
+                        min="10"
+                        max="100"
+                        value="100"
+                        step="1"
+                        aria-label="Adjust color brightness">
+
+                    <div class="brightness-labels">
+                        <span>Dark</span>
+                        <span>Bright</span>
+                    </div>
+
+                   <!-- Creative Artist Illustration -->
+<div class="artist-illustration">
+
+    <img
+    src="./images/artist-painting.gif"
+    alt="Artist painting a colorful rainbow"
+    class="artist-image"
+>
+
+    <div class="artist-caption">
+        <h3>Every color tells a story.</h3>
+        <p>Pick a color. Create something beautiful.</p>
+    </div>
+
+</div>
+
+                </div>
+
+                <!-- Color Preview -->
+                <div class="card preview-card">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <h3>Color Preview</h3>
+                            <p>See your selected color live.</p>
+                        </div>
+
+                        <span class="live-indicator">
+                            <span></span> LIVE
+                        </span>
+
+                    </div>
+
+                    <div id="colorPreview" class="color-preview">
+
+                        <div class="preview-content">
+                            <h2 id="previewHex">#6C63FF</h2>
+                            <p>Selected Color</p>
+                        </div>
+
+                    </div>
+
+                    <div class="color-input-section">
+
+                        <label for="colorInput">
+                            Choose your color
+                        </label>
+
+                        <div class="color-input-wrapper">
+
+                            <input
+                                type="color"
+                                id="colorInput"
+                                value="#6c63ff"
+                                aria-label="Choose selected color">
+
+                            <span id="selectedHex">#6C63FF</span>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        id="randomBtn"
+                        class="btn btn-primary full-width"
+                        type="button">
+
+                        ✦ Generate Random Color
+
+                    </button>
+
+                </div>
+
+                <!-- Color Information -->
+                <div class="card details-card">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <h3>Color Information</h3>
+                            <p>Copy your preferred color format.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Color Formats -->
+                    <div class="color-formats">
+
+                        <!-- HEX -->
+                        <div class="format-item">
+
+                            <div>
+                                <span>HEX</span>
+                                <h4 id="hexValue">#6C63FF</h4>
+                            </div>
+
+                            <button
+                                class="copy-btn"
+                                data-copy="hexValue"
+                                type="button"
+                                aria-label="Copy HEX color code">
+
+                                Copy
+
+                            </button>
+
+                        </div>
+
+                        <!-- RGB -->
+                        <div class="format-item">
+
+                            <div>
+                                <span>RGB</span>
+                                <h4 id="rgbValue">108, 99, 255</h4>
+                            </div>
+
+                            <button
+                                class="copy-btn"
+                                data-copy="rgbValue"
+                                type="button"
+                                aria-label="Copy RGB color code">
+
+                                Copy
+
+                            </button>
+
+                        </div>
+
+                        <!-- HSL -->
+                        <div class="format-item">
+
+                            <div>
+                                <span>HSL</span>
+                                <h4 id="hslValue">244, 100%, 69%</h4>
+                            </div>
+
+                            <button
+                                class="copy-btn"
+                                data-copy="hslValue"
+                                type="button"
+                                aria-label="Copy HSL color code">
+
+                                Copy
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Favorites Section -->
+                    <div class="favorite-section">
+
+                        <div class="section-heading">
+
+                            <div>
+                                <h3>Favorite Colors</h3>
+                                <p>Your saved colors.</p>
+                            </div>
+
+                            <button
+                                id="favoriteBtn"
+                                class="btn btn-outline"
+                                type="button">
+
+                                ♡ Save Favorite
+
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="favoritesContainer"
+                            class="swatch-grid">
+                        </div>
+
+                    </div>
+
+                    <!-- Export Color Palette -->
+                    <div class="export-section">
+
+                        <div class="section-heading">
+
+                            <div>
+                                <h3>Export Color Palette</h3>
+                                <p>Download your colors for other projects.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="export-actions">
+
+                            <button
+                                id="exportCssBtn"
+                                class="btn btn-primary"
+                                type="button">
+
+                                ⬇ Export CSS
+
+                            </button>
+
+                            <button
+                                id="exportJsonBtn"
+                                class="btn btn-outline"
+                                type="button">
+
+                                ⬇ Export JSON
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Color History -->
+            <section class="card history-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h3>Recent Colors</h3>
+                        <p>Your recently selected colors.</p>
+                    </div>
+
+                    <button
+                        id="clearHistoryBtn"
+                        class="btn btn-outline"
+                        type="button">
+
+                        Clear History
+
+                    </button>
+
+                </div>
+
+                <div id="historyContainer" class="swatch-grid">
+                </div>
+
+            </section>
+
+            <!-- Color Palette Generator -->
+            <section class="card palette-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h3>Color Palette Generator</h3>
+                        <p>Generate harmonious color combinations.</p>
+                    </div>
+
+                    <button
+                        id="generatePaletteBtn"
+                        class="btn btn-primary"
+                        type="button">
+
+                        ✦ Generate Palette
+
+                    </button>
+
+                </div>
+
+                <div class="palette-options">
+
+                    <label for="paletteType">
+                        Color Harmony
+                    </label>
+
+                    <select id="paletteType">
+
+                        <option value="complementary">
+                            Complementary
+                        </option>
+
+                        <option value="analogous">
+                            Analogous
+                        </option>
+
+                        <option value="triadic">
+                            Triadic
+                        </option>
+
+                        <option value="monochromatic">
+                            Monochromatic
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div id="paletteContainer" class="palette-container">
+                </div>
+
+                <button
+                    id="copyPaletteBtn"
+                    class="btn btn-outline"
+                    type="button">
+
+                    Copy Palette
+
+                </button>
+
+            </section>
+
+            <!-- Color Contrast Checker -->
+            <section class="card contrast-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h3>Color Contrast Checker</h3>
+                        <p>Check text readability and accessibility.</p>
+                    </div>
+
+                </div>
+
+                <div class="contrast-controls">
+
+                    <div>
+
+                        <label for="foregroundColor">
+                            Text Color
+                        </label>
+
+                        <input
+                            type="color"
+                            id="foregroundColor"
+                            value="#20243A"
+                            aria-label="Select text color">
+
+                    </div>
+
+                    <div>
+
+                        <label for="backgroundColor">
+                            Background Color
+                        </label>
+
+                        <input
+                            type="color"
+                            id="backgroundColor"
+                            value="#FFFFFF"
+                            aria-label="Select background color">
+
+                    </div>
+
+                </div>
+
+                <div id="contrastPreview" class="contrast-preview">
+
+                    <h3>Sample Text Preview</h3>
+
+                    <p>
+                        The quick brown fox jumps over the lazy dog.
+                    </p>
+
+                </div>
+
+                <div class="contrast-result">
+
+                    <div>
+                        <span>Contrast Ratio</span>
+                        <h2 id="contrastRatio">--</h2>
+                    </div>
+
+                    <div>
+                        <span>WCAG Result</span>
+
+                        <h3 id="contrastStatus" class="contrast-status">
+                            --
+                        </h3>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Gradient Generator -->
+            <section class="card gradient-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h3>Gradient Generator</h3>
+                        <p>Create beautiful CSS gradients.</p>
+                    </div>
+
+                </div>
+
+                <div class="gradient-controls">
+
+                    <!-- First Gradient Color -->
+                    <div class="gradient-color-control">
+
+                        <label for="gradientColor1">
+                            Color One
+                        </label>
+
+                        <input
+                            type="color"
+                            id="gradientColor1"
+                            value="#6c63ff"
+                            aria-label="Select first gradient color">
+
+                    </div>
+
+                    <!-- Second Gradient Color -->
+                    <div class="gradient-color-control">
+
+                        <label for="gradientColor2">
+                            Color Two
+                        </label>
+
+                        <input
+                            type="color"
+                            id="gradientColor2"
+                            value="#00d4ff"
+                            aria-label="Select second gradient color">
+
+                    </div>
+
+                    <!-- Gradient Direction -->
+                    <div class="gradient-direction-control">
+
+                        <label for="gradientDirection">
+                            Direction
+                        </label>
+
+                        <select id="gradientDirection">
+
+                            <option value="90deg">
+                                Left to Right
+                            </option>
+
+                            <option value="180deg">
+                                Top to Bottom
+                            </option>
+
+                            <option value="45deg">
+                                Diagonal
+                            </option>
+
+                            <option value="135deg">
+                                Reverse Diagonal
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div id="gradientPreview" class="gradient-preview">
+                </div>
+
+                <div class="gradient-code">
+
+                    <code id="gradientCode">
+                        linear-gradient(90deg, #6C63FF, #00D4FF)
+                    </code>
+
+                    <button
+                        id="copyGradientBtn"
+                        class="btn btn-primary"
+                        type="button">
+
+                        Copy CSS
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Toast Notification -->
+        <div
+            id="toast"
+            class="toast"
+            role="status"
+            aria-live="polite">
+
+            Copied successfully!
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <p>
+                © 2026 ColorPicker Pro.
+                Built with HTML, CSS and JavaScript.
+            </p>
+
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
