@@ -6,19 +6,19 @@ A modern, interactive color picker and palette generator built using **HTML, CSS
 
 ### Interactive Color Wheel & Color Preview
 
-![Color Wheel](Screenshots/Color%20wheel.png)
+![Color Wheel](Screenshots/color-wheel.png)
 
 ### Color Palette Generator
 
-![Color Palette](Screenshots/Color%20palette.png)
+![Color Palette](Screenshots/color-palette.png)
 
 ### Color Contrast Checker
 
-![Contrast Checker](Screenshots/contrast%20checker.png)
+![Contrast Checker](Screenshots/contrast-checker.png)
 
 ### Creative Artist Illustration
 
-![Artist Illustration](Screenshots/Gif.png)
+![Artist Illustration](Screenshots/artist-illustration.png)
 
 ## ✨ Features
 
