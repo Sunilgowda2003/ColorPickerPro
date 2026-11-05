@@ -4,21 +4,39 @@ A modern, interactive color picker and palette generator built using **HTML, CSS
 
 ## 📸 Screenshots
 
-### Interactive Color Wheel & Color Preview
+### ColorPicker Pro – Main Interface
 
-![Color Wheel](Screenshots/color-wheel.png)
+<table>
+  <tr>
+    <th>Interactive Color Wheel</th>
+    <th>Color Palette Generator</th>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="Screenshots/color-wheel.png" alt="Color Wheel" width="100%">
+    </td>
+    <td width="50%">
+      <img src="Screenshots/color-palette.png" alt="Color Palette Generator" width="100%">
+    </td>
+  </tr>
+</table>
 
-### Color Palette Generator
+### Color Accessibility & Creative Studio
 
-![Color Palette](Screenshots/color-palette.png)
-
-### Color Contrast Checker
-
-![Contrast Checker](Screenshots/contrast-checker.png)
-
-### Creative Artist Illustration
-
-![Artist Illustration](Screenshots/artist-illustration.png)
+<table>
+  <tr>
+    <th>Color Contrast Checker</th>
+    <th>Artist Illustration</th>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="Screenshots/contrast-checker.png" alt="Contrast Checker" width="100%">
+    </td>
+    <td width="50%">
+      <img src="Screenshots/artist-illustration.png" alt="Artist Illustration" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## ✨ Features
 
