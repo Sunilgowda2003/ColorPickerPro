@@ -2,6 +2,10 @@
 
 A modern, interactive color picker and palette generator built using **HTML, CSS, and JavaScript**. ColorPicker Pro helps developers and designers explore colors, generate harmonious palettes, check color accessibility, and create beautiful gradients.
 
+## 🌐 Live Demo
+
+🚀 [Click here to explore ColorPicker Pro](https://sunilgowda2003.github.io/ColorPickerPro/)
+
 ## 📸 Screenshots
 
 ### ColorPicker Pro – Main Interface
@@ -139,6 +143,7 @@ This project helped me improve my understanding of:
 - Advanced accessibility recommendations
 - More export formats
 - Custom palette collections
+  
 
 ## 👨‍💻 Author
 
